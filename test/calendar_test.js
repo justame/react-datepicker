@@ -251,6 +251,38 @@ describe('Calendar', function () {
     expect(daysNamesMin.at(6).text()).to.equal('GG')
   })
 
+  it('should show header by default', () => {
+    var calendar = mount(
+          <Calendar
+              dateFormat="MMMM YYYY"/>)
+    expect(calendar.hasClass('react-datepicker--hide-header')).to.equal(false)
+  })
+
+  it('should hide header if year dropdown is visible', () => {
+    var calendar = mount(
+          <Calendar
+              showYearDropdown
+              dateFormat="MMMM YYYY"/>)
+    expect(calendar.hasClass('react-datepicker--hide-header')).to.equal(true)
+  })
+
+  it('should hide header if month dropdown is visible', () => {
+    var calendar = mount(
+          <Calendar
+              showMonthDropdown
+              dateFormat="MMMM YYYY"/>)
+    expect(calendar.hasClass('react-datepicker--hide-header')).to.equal(true)
+  })
+
+  it('should hide header if both year and month dropdown are visible', () => {
+    var calendar = mount(
+          <Calendar
+              showYearDropdown
+              showMonthDropdown
+              dateFormat="MMMM YYYY"/>)
+    expect(calendar.hasClass('react-datepicker--hide-header')).to.equal(true)
+  })
+
   describe('onMonthChange', () => {
     let onMonthChangeSpy = sinon.spy()
     let calendar

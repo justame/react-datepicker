@@ -87,6 +87,17 @@
   font-weight: bold;
   font-size: $datepicker__font-size * 1.18;
 }
+.react-datepicker--hide-header{ 
+  .react-datepicker__current-month.react-datepicker__current-month--hasYearDropdown,
+  .react-datepicker__current-month.react-datepicker__current-month--hasMonthDropdown {
+    display: none;
+  }
+  
+  .react-datepicker__year-dropdown,
+  .react-datepicker__month-dropdown {
+    top: 15px;
+  }
+}
 
 .react-datepicker__navigation {
   line-height: $datepicker__item-size;

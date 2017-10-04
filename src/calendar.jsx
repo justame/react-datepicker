@@ -386,8 +386,14 @@ export default class Calendar extends React.Component {
   }
 
   render () {
+    const shouldHideHeader = this.props.showYearDropdown || this.props.showMonthDropdown
+
     return (
-      <div className={classnames('react-datepicker', this.props.className)}>
+
+      <div className={
+        classnames('react-datepicker',
+          this.props.className,
+          shouldHideHeader ? 'react-datepicker--hide-header' : '')}>
         <div className="react-datepicker__triangle" />
         {this.renderPreviousMonthButton()}
         {this.renderNextMonthButton()}
